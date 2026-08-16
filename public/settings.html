@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paramètres — Dr Blood IA VD-1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="settings">
+  <script type="module" src="/js/firebase-auth.js"></script>
+  <div id="nav-root"></div>
+
+  <div class="page-container">
+    <div class="page-header">
+      <span class="eyebrow">Configuration</span>
+      <h1>Paramètres</h1>
+      <p>Personnalise ton expérience et gère tes données.</p>
+    </div>
+
+    <div class="settings-section">
+      <h3>Apparence</h3>
+      <p class="settings-desc">Choisis le thème de l'interface.</p>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Mode sombre</div>
+          <div class="settings-row-sub">Activé par défaut, façon Zainz.</div>
+        </div>
+        <div class="theme-switch-track" id="settingsThemeSwitch">
+          <div class="theme-switch-thumb"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Données</h3>
+      <p class="settings-desc">Gère l'historique de tes conversations.</p>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Vider tout l'historique</div>
+          <div class="settings-row-sub">Supprime définitivement toutes tes conversations.</div>
+        </div>
+        <button id="clearHistoryBtn" class="btn-danger-outline">Vider l'historique</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>Compte</h3>
+      <p class="settings-desc">Ton compte connecté.</p>
+      <div class="settings-row">
+        <div>
+          <div class="settings-row-label">Email connecté</div>
+          <div class="settings-row-sub" id="accountEmail">—</div>
+        </div>
+        <button id="logoutBtn" class="btn-danger-outline">Déconnexion</button>
+      </div>
+    </div>
+
+    <div class="settings-section">
+      <h3>À propos</h3>
+      <p class="settings-desc">Informations sur l'application.</p>
+      <div class="settings-row">
+        <div class="settings-row-label">Créateur</div>
+        <div class="settings-row-sub" id="aboutCreator"></div>
+      </div>
+      <div class="settings-row">
+        <div class="settings-row-label">Société officielle</div>
+        <div class="settings-row-sub" id="aboutCompany"></div>
+      </div>
+      <div class="settings-row">
+        <div class="settings-row-label">Conditions d'utilisation</div>
+        <a href="/terms.html" class="btn-outline" style="text-decoration:none;">Consulter</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/nav.js"></script>
+  <script>
+    document.getElementById("aboutCreator").textContent = window.APP_CONFIG.creator;
+    document.getElementById("aboutCompany").textContent = window.APP_CONFIG.company;
+
+    const themeSwitch = document.getElementById("settingsThemeSwitch");
+    themeSwitch.addEventListener("click", () => {
+      toggleTheme();
+    });
+
+    document.getElementById("clearHistoryBtn").addEventListener("click", async () => {
+      if (!confirm("Supprimer définitivement TOUTES tes conversations ? Cette action est irréversible.")) return;
+      try {
+        const res = await fetch("/api/conversations", { method: "DELETE" });
+        if (!res.ok) throw new Error("Échec de la suppression.");
+        alert("Historique vidé.");
+      } catch (err) {
+        alert("Erreur : " + err.message);
+      }
+    });
+
+    document.addEventListener("auth:ready", (e) => {
+      document.getElementById("accountEmail").textContent = e.detail.user.email || "—";
+    });
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      window.firebaseAuth.logout().then(() => {
+        window.location.href = "/";
+      });
+    });
+  </script>
+</body>
+</html>

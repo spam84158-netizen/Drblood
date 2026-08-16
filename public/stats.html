@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Statistiques — Dr Blood IA VD-1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="stats">
+  <script type="module" src="/js/firebase-auth.js"></script>
+  <div id="nav-root"></div>
+
+  <div class="page-container">
+    <div class="page-header">
+      <span class="eyebrow">Tableau de bord</span>
+      <h1>Statistiques d'usage</h1>
+      <p>Activité réelle de tes conversations, calculée depuis la base de données.</p>
+    </div>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="stat-label">Conversations</div><div class="stat-value" id="statConversations">—</div></div>
+      <div class="stat-card"><div class="stat-label">Messages totaux</div><div class="stat-value" id="statMessages">—</div></div>
+      <div class="stat-card"><div class="stat-label">Moy. / conversation</div><div class="stat-value" id="statAvg">—</div></div>
+      <div class="stat-card"><div class="stat-label">Messages (14j)</div><div class="stat-value" id="statRecent">—</div></div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <h3>Activité — 14 derniers jours</h3>
+        <div class="chart-wrap"><canvas id="activityChart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3>Répartition des messages</h3>
+        <div class="chart-wrap"><canvas id="splitChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+  <script src="/js/config.js"></script>
+  <script src="/js/nav.js"></script>
+  <script src="/js/stats.js"></script>
+</body>
+</html>

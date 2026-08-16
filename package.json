@@ -1,0 +1,24 @@
+{
+  "name": "ai-chat-app",
+  "version": "1.0.0",
+  "description": "Application web de chat IA (type ChatGPT/Claude) avec backend Node.js sécurisé et API Groq (gratuite).",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "openai": "^4.55.0",
+    "firebase-admin": "^12.6.0",
+    "dotenv": "^16.4.5",
+    "helmet": "^7.1.0",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.4.0",
+    "uuid": "^9.0.1",
+    "archiver": "^7.0.1"
+  }
+}

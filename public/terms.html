@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Conditions d'utilisation — Dr Blood IA VD-1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="terms">
+  <div id="nav-root"></div>
+
+  <div class="page-container">
+    <div class="page-header">
+      <span class="eyebrow">Mentions légales</span>
+      <h1>Conditions d'utilisation</h1>
+    </div>
+
+    <p class="terms-updated">Dernière mise à jour : <span id="updateDate"></span></p>
+
+    <div class="terms-content">
+      <h2>1. Objet</h2>
+      <p>Ce site propose un assistant conversationnel basé sur l'intelligence artificielle, édité par <strong id="tCompany"></strong> et créé par <strong id="tCreator"></strong>. En utilisant ce service, tu acceptes les présentes conditions.</p>
+
+      <h2>2. Nature du service</h2>
+      <p>L'assistant génère des réponses automatiquement à partir d'un modèle de langage. Ses réponses peuvent contenir des erreurs, des approximations ou des informations obsolètes. Vérifie toujours les informations importantes avant de t'y fier, en particulier pour des sujets médicaux, juridiques ou financiers.</p>
+
+      <h2>3. Utilisation autorisée</h2>
+      <ul>
+        <li>Le service doit être utilisé dans le respect des lois en vigueur.</li>
+        <li>Il est interdit d'utiliser le service pour produire du contenu illégal, malveillant, ou destiné à nuire à autrui.</li>
+        <li>Toute tentative de contournement des règles de sécurité de l'assistant est interdite.</li>
+      </ul>
+
+      <h2>4. Conservation des données</h2>
+      <p>Tes conversations sont enregistrées afin de te permettre de les retrouver ultérieurement. Tu peux à tout moment supprimer une conversation, ou vider l'intégralité de ton historique depuis la page Paramètres.</p>
+
+      <h2>5. Disponibilité</h2>
+      <p>Le service est fourni "en l'état", sans garantie de disponibilité continue. Des interruptions temporaires peuvent survenir pour maintenance ou en cas de panne du fournisseur d'hébergement ou d'API tierce.</p>
+
+      <h2>6. Limitation de responsabilité</h2>
+      <p><strong id="tCompany2"></strong> ne saurait être tenue responsable des décisions prises sur la base des réponses générées par l'assistant. L'utilisateur reste seul responsable de l'usage qu'il fait du service.</p>
+
+      <h2>7. Modification des conditions</h2>
+      <p>Ces conditions peuvent être mises à jour à tout moment. La date de dernière modification est indiquée en haut de cette page.</p>
+
+      <h2>8. Contact</h2>
+      <p>Pour toute question, retrouve-nous sur nos canaux officiels via les icônes en pied de page (Telegram, WhatsApp, YouTube).</p>
+    </div>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/nav.js"></script>
+  <script>
+    document.getElementById("updateDate").textContent = new Date().toLocaleDateString("fr-FR", { year: "numeric", month: "long", day: "numeric" });
+    document.getElementById("tCompany").textContent = window.APP_CONFIG.company;
+    document.getElementById("tCompany2").textContent = window.APP_CONFIG.company;
+    document.getElementById("tCreator").textContent = window.APP_CONFIG.creator;
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr Blood IA VD-1 — Chat</title>
+<meta name="description" content="Dr Blood IA VD-1 — assistant conversationnel intelligent, propulsé par Zainz Compagnie." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-page="landing">
+  <div id="nav-root"></div>
+
+  <section class="landing-hero">
+    <div class="hero-mark"></div>
+    <span class="hero-eyebrow">Zainz Compagnie présente</span>
+    <h1 class="hero-title">Dr Blood IA <span class="drop">VD-1</span></h1>
+    <p class="hero-subtitle">
+      Un assistant IA conversationnel rapide, honnête et toujours disponible.
+      Pose tes questions, écris, code, réfléchis — Dr Blood IA VD-1 s'occupe du reste.
+    </p>
+    <a href="/chat.html" class="hero-cta">
+      Entrer dans le chat
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <p class="hero-meta">Créé par <strong id="creatorName"></strong></p>
+  </section>
+
+  <div class="landing-features">
+    <div class="feature-card">
+      <span class="feature-num">01</span>
+      <h3>Réponses en direct</h3>
+      <p>Le texte s'affiche au fil de la génération, avec la possibilité d'interrompre à tout moment.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-num">02</span>
+      <h3>Historique conservé</h3>
+      <p>Toutes tes conversations sont sauvegardées et consultables à tout moment.</p>
+    </div>
+    <div class="feature-card">
+      <span class="feature-num">03</span>
+      <h3>Statistiques d'usage</h3>
+      <p>Suis ton activité en un coup d'œil depuis le tableau de bord dédié.</p>
+    </div>
+  </div>
+
+  <div id="footer-root"></div>
+
+  <script src="/js/config.js"></script>
+  <script src="/js/nav.js"></script>
+  <script>
+    document.getElementById("creatorName").textContent = window.APP_CONFIG.creator;
+  </script>
+</body>
+</html>
